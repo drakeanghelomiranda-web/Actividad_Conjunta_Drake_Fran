@@ -1,13 +1,135 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ca">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aeropuerto - Prueba</title>
+    <title>Planificador de Viatge amb Pressupost</title>
     <link rel="stylesheet" href="style.css">
-    <script src="app.js" defer></script>
 </head>
 <body>
-    <h1>¡Bienvenidos al aeropuerto!</h1>
+    <div class="container">
+        <header>
+            <h1>Planificador de Viatge</h1>
+            <p class="subtitle">Calculador de pressupost i desglossament diari per a 1 persona</p>
+        </header>
+
+        <main>
+            <!-- 1. Formulario de entrada -->
+            <section class="card form-section">
+                <h2>Dades del Viatge</h2>
+                <form id="form-viatge" novalidate>
+                    <div class="form-group full-width">
+                        <label for="nomViatge">Nom del viatge:</label>
+                        <input type="text" id="nomViatge" placeholder="Ex: Escapada a Girona" value="Escapada">
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="dataSortida">Data de sortida:</label>
+                            <input type="date" id="dataSortida" value="2026-10-23">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="dataTornada">Data de tornada:</label>
+                            <input type="date" id="dataTornada" value="2026-10-26">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="pressupost">Pressupost (€):</label>
+                            <input type="number" id="pressupost" step="0.01" min="0.01" value="500">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="transport">Transport anada/tornada (€):</label>
+                            <input type="number" id="transport" step="0.01" min="0" value="120">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="preuNit">Preu per nit (€):</label>
+                            <input type="number" id="preuNit" step="0.01" min="0" value="65">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="despesaLaborable">Despesa laborable (€/dia):</label>
+                            <input type="number" id="despesaLaborable" step="0.01" min="0" value="30">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="despesaCapSetmana">Despesa cap de setmana (€/dia):</label>
+                            <input type="number" id="despesaCapSetmana" step="0.01" min="0" value="45">
+                        </div>
+                    </div>
+
+                    <!-- Botones de acción requeridos -->
+                    <!-- <div class="button-group">
+                        <button type="button" id="btn-calcular" class="btn btn-primary">Calcular</button>
+                        <button type="button" id="btn-guardar" class="btn btn-secondary">Guardar</button>
+                        <button type="button" id="btn-recuperar" class="btn btn-secondary">Recuperar</button>
+                        <button type="button" id="btn-esborrar" class="btn btn-danger">Esborrar desat</button>
+                        <button type="button" id="btn-resum" class="btn btn-outline">Obrir resum</button>
+                    </div> -->
+                </form>
+            </section>
+
+            <!-- 2. Contenedores de mensajes -->
+            <!-- <div id="missatge-container" class="message-container hidden" role="alert"></div>
+            <div id="avis" class="avis-container"></div>
+
+            <!-- 3. Sección de resultados y tabla 
+            <section id="seccio-resultats" class="card result-section hidden">
+                <div class="result-header">
+                    <h2>Resum de la Planificació: <span id="resum-nom"></span></h2>
+                    <div id="badge-estat" class="badge">--</div>
+                </div>
+
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <span class="metric-label">Durada</span>
+                        <span class="metric-value" id="resum-durada">0 dies / 0 nits</span>
+                        <span class="metric-sub" id="resum-tipus-dies">0 laborables, 0 cap de setmana</span>
+                    </div>
+
+                    <div class="metric-card">
+                        <span class="metric-label">Cost Total</span>
+                        <span class="metric-value" id="resum-cost-total">0.00 €</span>
+                        <span class="metric-sub">Transport: <span id="resum-transport">0.00 €</span></span>
+                    </div>
+
+                    <div class="metric-card">
+                        <span class="metric-label">Saldo Disponible</span>
+                        <span class="metric-value" id="resum-saldo">0.00 €</span>
+                        <span class="metric-sub">De <span id="resum-pressupost">0.00 €</span> pressupostats</span>
+                    </div>
+
+                    <div class="metric-card">
+                        <span class="metric-label">Mitjana Diària</span>
+                        <span class="metric-value" id="resum-mitjana">0.00 €/dia</span>
+                        <span class="metric-sub">Allotjament: <span id="resum-allotjament">0.00 €</span></span>
+                    </div>
+                </div>
+
+                <h3>Desglossament Dia a Dia</h3>
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Nº Dia</th>
+                                <th>Data</th>
+                                <th>Tipus de dia</th>
+                                <th>Transport</th>
+                                <th>Allotjament</th>
+                                <th>Despesa diària</th>
+                                <th>Cost dia</th>
+                                <th>Acumulat</th>
+                            </tr>
+                        </thead>
+                        <tbody id="taula-detall-body"></tbody>
+                    </table>
+                </div>
+            </section> -->
+        </main>
+    </div>
+
+    <script src="app3.js" defer></script>
 </body>
 </html>
